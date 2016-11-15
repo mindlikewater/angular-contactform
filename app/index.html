@@ -25,7 +25,7 @@
         <label class="label">Website</label>
         <p class="control">
           <input class="input" type="text" placeholder="https://jdoe.net"
-          ng-model="contact.url" ng-keyup="validateUrl(contact.url)" />
+          ng-model="contact.url" ng-blur="validateUrl(contact.url)" />
         <span class="red input-error"> {{ errors.url }} </span>
         </p>
         <label class="label">Message</label>
@@ -40,11 +40,22 @@
         </p>
       </form>
       <h1>Contacts List</h1>
-      <ul class="contacts-list">
-        <li ng-repeat="contact in contacts">
-          <h3>{{ contact.name }}</h3>
-        </li>
-      </ul>    </div>
+      <div class="box" ng-repeat="contact in contacts">
+        <article>
+          <div class="contacts-list">
+            <div class="comment-box">
+              <p>
+                <strong>{{contact.name}}</strong> <small>{{contact.email}}</small> <strong>says:</strong>
+                <br>
+                {{contact.msg}}
+                <br>
+                {{contact.url}}
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
     <script src="js/bundle.js"></script>
   </body>
 </html>
