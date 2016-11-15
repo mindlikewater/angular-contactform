@@ -13,27 +13,27 @@
         <label class="label">Name</label>
         <p class="control">
           <input class="input" type="text" placeholder="Jane Doe"
-            ng-model="contact.name" ng-keyup="validateName(contact.name)" />
-          <span class="input-error"> {{ errors.name }} </span>
+            ng-model="contact.name" ng-blur="validateName(contact.name)" />
+          <span class="red input-error"> {{ errors.name }} </span>
         </p>
         <label class="label">Email</label>
         <p class="control">
           <input class="input" type="text" placeholder="jdoe@email.com"
-            ng-model="contact.email" ng-keyup="validateEmail(contact.email)" />
-          <span class="input-error"> {{ errors.email }} </span>
+            ng-model="contact.email" ng-blur="validateEmail(contact.email)" />
+          <span class="red input-error"> {{ errors.email }} </span>
         </p>
         <label class="label">Website</label>
         <p class="control">
           <input class="input" type="text" placeholder="https://jdoe.net"
           ng-model="contact.url" ng-keyup="validateUrl(contact.url)" />
-        <span class="input-error"> {{ errors.url }} </span>
+        <span class="red input-error"> {{ errors.url }} </span>
         </p>
         <label class="label">Message</label>
         <p class="control">
           <textarea class="textarea" placeholder="A friendly message..."
             ng-model="contact.msg" ng-keyup="validateMsg(contact.msg)" />
           </textarea>
-          <span class="input-error"> {{ errors.msg }} </span>
+          <span class="red input-error"> {{ errors.msg }} </span>
         </p>
         <p class="control">
           <button class="button is-primary">Submit</button>
