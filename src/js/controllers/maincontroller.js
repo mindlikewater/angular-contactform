@@ -77,9 +77,10 @@ function MainController ($scope, $http) {
       $http.post(SERVER_URL, contact).then(function (resp) {
         let contact = resp.data;
         $scope.contacts.push(contact);
-        console.log($scope.contacts);
+        // console.log($scope.contacts);
       });
     }
+    $scope.contact = [];
   };
 };
 
