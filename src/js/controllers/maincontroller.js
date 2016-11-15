@@ -6,7 +6,6 @@ function MainController ($scope, $http) {
 
   function init () {
     $http.get(SERVER_URL).then(function (resp) {
-      console.log(resp.data);
       $scope.contacts = resp.data;
     });
   };
@@ -66,8 +65,11 @@ function MainController ($scope, $http) {
     return true;
   };
 
-  $scope.validateData = function () {
-    return
+  $scope.validateData = function (contact) {
+    return $scope.validateName(contact.name) &&
+      $scope.validateEmail(contact.email) &&
+      $scope.validateUrl(contact.url) &&
+      $scope.validateMsg(contact.msg);
   }
 
   $scope.addContact = function (contact) {
@@ -75,6 +77,7 @@ function MainController ($scope, $http) {
       $http.post(SERVER_URL, contact).then(function (resp) {
         let contact = resp.data;
         $scope.contacts.push(contact);
+        console.log($scope.contacts);
       });
     }
   };
