@@ -39,7 +39,12 @@
           <button class="button is-primary">Submit</button>
         </p>
       </form>
-    </div>
+      <h1>Contacts List</h1>
+      <ul class="contacts-list">
+        <li ng-repeat="contact in contacts">
+          <h3>{{ contact.name }}</h3>
+        </li>
+      </ul>    </div>
     <script src="js/bundle.js"></script>
   </body>
 </html>
