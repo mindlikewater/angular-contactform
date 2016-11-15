@@ -3,13 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Project</title>
+    <title>Contact Form with AngularJS</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
-    <div class="container">
-      <p>Welcome to your life.</p>
+  <body ng-app="app">
+    <div class="container" ng-controller="MainController">
+      <form ng-submit="addContact">
+        <label class="label">Name</label>
+        <p class="control">
+          <input class="input" type="text" placeholder="Jane Doe">
+        </p>
+        <label class="label">Email</label>
+        <p class="control has-icon has-icon-right">
+          <input class="input" type="text" placeholder="jdoe@email.com">
+          <!-- <i class="fa fa-warning"></i>
+          <span class="help is-danger">This email is invalid</span> -->
+        </p>
+        <label class="label">Website</label>
+        <p class="control">
+          <input class="input" type="text" placeholder="https://jdoe.net">
+        </p>
+        <label class="label">Message</label>
+        <p class="control">
+          <textarea class="textarea" placeholder="A friendly message..."></textarea>
+        </p>
+        <p class="control">
+          <button class="button is-primary">Submit</button>
+        </p>
+      </form>
     </div>
     <script src="js/bundle.js"></script>
   </body>
