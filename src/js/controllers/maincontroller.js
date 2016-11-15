@@ -40,13 +40,18 @@ function MainController ($scope, $http) {
   };
 
   $scope.validateUrl = function (url) {
-    if (url && !url.startsWith('http')) {
+    if (url === '') {
+      $scope.errors.url = "Website cannot be left empty";
+      return false;
+    }
+    else if (url && !url.startsWith('http')) {
       $scope.errors.url = "Must be a valid URL starting with http or https."
       return false;
     }
-    else if (url === '') {
-      $scope.errors.url = '';
+    else {
+      $scope.errors.url = "";
     }
+
     return true;
   };
 
@@ -62,7 +67,7 @@ function MainController ($scope, $http) {
   };
 
   $scope.validateData = function () {
-    return 
+    return
   }
 
   $scope.addContact = function (contact) {
