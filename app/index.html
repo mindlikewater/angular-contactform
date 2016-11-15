@@ -9,24 +9,31 @@
   </head>
   <body ng-app="app">
     <div class="container" ng-controller="MainController">
-      <form ng-submit="addContact">
+      <form ng-submit="addContact(contact)">
         <label class="label">Name</label>
         <p class="control">
-          <input class="input" type="text" placeholder="Jane Doe">
+          <input class="input" type="text" placeholder="Jane Doe"
+            ng-model="contact.name" ng-keyup="validateName(contact.name)" />
+          <span class="input-error"> {{ errors.name }} </span>
         </p>
         <label class="label">Email</label>
-        <p class="control has-icon has-icon-right">
-          <input class="input" type="text" placeholder="jdoe@email.com">
-          <!-- <i class="fa fa-warning"></i>
-          <span class="help is-danger">This email is invalid</span> -->
+        <p class="control">
+          <input class="input" type="text" placeholder="jdoe@email.com"
+            ng-model="contact.email" ng-keyup="validateEmail(contact.email)" />
+          <span class="input-error"> {{ errors.email }} </span>
         </p>
         <label class="label">Website</label>
         <p class="control">
-          <input class="input" type="text" placeholder="https://jdoe.net">
+          <input class="input" type="text" placeholder="https://jdoe.net"
+          ng-model="contact.url" ng-keyup="validateUrl(contact.url)" />
+        <span class="input-error"> {{ errors.url }} </span>
         </p>
         <label class="label">Message</label>
         <p class="control">
-          <textarea class="textarea" placeholder="A friendly message..."></textarea>
+          <textarea class="textarea" placeholder="A friendly message..."
+            ng-model="contact.msg" ng-keyup="validateMsg(contact.msg)" />
+          </textarea>
+          <span class="input-error"> {{ errors.msg }} </span>
         </p>
         <p class="control">
           <button class="button is-primary">Submit</button>
