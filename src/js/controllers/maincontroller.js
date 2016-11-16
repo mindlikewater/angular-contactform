@@ -13,7 +13,7 @@ function MainController ($scope, $http) {
   init();
 
   $scope.validateName = function (name) {
-    if (name === undefined) {
+    if (name === undefined || name === '') {
       $scope.errors.name = "Name cannot be left empty";
       return false;
     }
@@ -24,7 +24,7 @@ function MainController ($scope, $http) {
   };
 
   $scope.validateEmail = function (email) {
-    if (email === undefined) {
+    if (email === undefined || email === '') {
       $scope.errors.email = "Email cannot be left empty";
       return false;
     }
@@ -39,7 +39,7 @@ function MainController ($scope, $http) {
   };
 
   $scope.validateUrl = function (url) {
-    if (url === undefined) {
+    if (url === undefined || url === '') {
       $scope.errors.url = "Website cannot be left empty";
       return false;
     }
@@ -77,11 +77,10 @@ function MainController ($scope, $http) {
       $http.post(SERVER_URL, contact).then(function (resp) {
         let contact = resp.data;
         $scope.contacts.push(contact);
-        // console.log($scope.contacts);
+        console.log($scope.contacts);
       });
     }
     $scope.contact = [];
-
   };
 };
 
